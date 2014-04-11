@@ -73,21 +73,14 @@ def getSim (a_r, b_r):
     return a_r
 
 def compare(a, b):
-    print a.name
     a_r = []
     b_r = []
 
     a_r += a.all_reviews()
     b_r += b.all_reviews()
 
-    print "A ", a_r
-    print "B ", b_r
-
     a_r = getSim(a_r, b_r)
     b_r = getSim(b_r, a_r)
-
-    print "A ", a_r
-    print "B ", b_r
 
     # dot product
     d = 0
@@ -106,10 +99,6 @@ def compare(a, b):
         k += j.rating*j.rating
     k = math.sqrt(k)
 
-    print 'd', d
-    print 'h', h
-    print 'k', k
-
     return d / (h*k)
 
 
@@ -121,4 +110,4 @@ Person("Emma")
 Review(people[1], movies[0], 4), Review(people[1], movies[1], 3), Review(people[1], movies[2], 4)
 
 
-print compare(people[0], people[1]);
+print 'Similarity ', compare(people[0], people[1]);
